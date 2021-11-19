@@ -2,8 +2,8 @@
 //  ExtensionDelegate.swift
 //  Pocket Reader WatchKit Extension
 //
-//  Created by Maxim Bekmetov on 16.11.2021.
-//  Copyright © 2021 Maxim Bekmetov. All rights reserved.
+//  Created by Алексей Пархоменко on 17.04.2020.
+//  Copyright © 2020 Алексей Пархоменко. All rights reserved.
 //
 
 import WatchKit

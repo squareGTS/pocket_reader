@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DT8-VP-Sry">
     <device id="watch38"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Book Detail Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Pocket_Reader_WatchKit_App" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="BookDetailController" customModule="Pocket_Reader_WatchKit_App" customModuleProvider="target">
                     <items>
                         <label alignment="left" text="Поллиана" id="Ws5-x1-bpI"/>
                         <imageView alignment="left" image="444" id="UuG-iY-Aw1"/>
@@ -52,6 +52,9 @@
                                             </label>
                                         </items>
                                     </group>
+                                    <connections>
+                                        <segue destination="V5H-TM-Jfe" kind="modal" id="827-Zb-qqF"/>
+                                    </connections>
                                 </button>
                             </items>
                         </group>
@@ -61,9 +64,59 @@
                             <fontDescription key="font" type="system" pointSize="18"/>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="RVP-40-Njd" id="sN8-1a-ft7"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="34" y="31"/>
+        </scene>
+        <!--Description Interface Controller-->
+        <scene sceneID="Nxi-e5-VKm">
+            <objects>
+                <controller id="V5H-TM-Jfe" customClass="DescriptionInterfaceController" customModule="Pocket_Reader_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Label" numberOfLines="0" id="80P-DS-Kje"/>
+                    </items>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="80P-DS-Kje" id="nqn-4Q-5VW"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="336" y="-103"/>
+        </scene>
+        <!--Starter Interface Controller-->
+        <scene sceneID="kFF-Ae-arA">
+            <objects>
+                <controller id="DT8-VP-Sry" customClass="StarterInterfaceController" customModule="Pocket_Reader_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="tV3-X5-EEd">
+                            <items>
+                                <tableRow identifier="myBookRow" id="LMN-h8-MaY" customClass="MyBookRowController" customModule="Pocket_Reader_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="U0l-cZ-7zc">
+                                        <items>
+                                            <label alignment="left" text="Расширить сознание легально" numberOfLines="0" id="LAz-up-2lC"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="nameLabel" destination="LAz-up-2lC" id="WQX-SC-WlJ"/>
+                                        <segue destination="AgC-eL-Hgc" kind="push" id="dG6-gp-2XF"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <button width="1" alignment="left" title="Выбрать книги" id="yRt-L7-hSk">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" type="system" pointSize="18"/>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="tV3-X5-EEd" id="OCF-QX-saE"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-274" y="31"/>
         </scene>
     </scenes>
     <resources>
